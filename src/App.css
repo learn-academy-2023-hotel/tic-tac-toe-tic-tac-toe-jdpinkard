@@ -1,5 +1,13 @@
-.square {
-  border: 2px solid black;
-  height: 100px;
-  width: 100px;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #efefef;
+    font-family: "Rubik Doodle Shadow", sans-serif;
+}
+
+.title {
+    text-align: center;
 }
