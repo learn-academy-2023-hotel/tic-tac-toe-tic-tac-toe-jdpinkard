@@ -4,12 +4,20 @@
     align-items: center;
     justify-content: space-evenly;
     width: 20rem;
-    font-size: 1.5em;
-    background-color: white;
+    font-size: 1.8em;
+    background-color: rgba(255, 255, 255, 0.95);
     margin: 3rem auto;
-    box-shadow: 0px 0px 8px #888;
+    box-shadow: 0px 0px 8px rgb(107, 85, 98);
     border-radius: 0.5rem;
     font-weight: bold;
+}
+
+.X {
+    box-shadow: 0px 0px 15px rgba(223, 100, 235, 0.8);
+  }
+
+.O {
+    box-shadow: 0px 0px 15px rgba(95, 230, 54, 0.8);
 }
 
 .score {
@@ -19,14 +27,14 @@
 }
 
 .x-score {
-    color: rgb(255, 70, 37);
-    border-bottom: 5px solid rgb(255, 70, 37);
+    color: #df64eb;
+    border-bottom: 5px solid #df64eb;
     border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .o-score {
-    color: rgb(44, 135, 255);
-    border-bottom: 5px solid rgb(44, 135, 255);
+    color: #5fe636;
+    border-bottom: 5px solid #5fe636;
     border-radius: 0 0.5rem 0.5rem 0;
 }
 

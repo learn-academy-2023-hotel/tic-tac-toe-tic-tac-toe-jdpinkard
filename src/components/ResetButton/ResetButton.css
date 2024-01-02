@@ -1,10 +1,19 @@
 .reset-btn {
     border: none;
     border-radius: 0.5rem;
-    background-color: rgb(0, 110, 255);
-    color: white;
+    background-color: rgba(255,173,219, 0.7);
+    color: rgba(175, 20, 104, 1);
     font-size: 2rem;
+    font-family: 'Alegreya';
+    font-weight: bold;
     padding: 0.5rem 1rem;
     margin: 2rem auto;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgb(107, 85, 98);
     display: block;
+}
+
+.reset-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 15px rgb(44, 35, 40);
 }

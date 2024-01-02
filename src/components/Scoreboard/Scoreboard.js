@@ -1,15 +1,11 @@
 import React from 'react'
 import './Scoreboard.css'
 
-const Scoreboard = ({ scores, xPlaying }) => {
-    const {xScore, oScore} = scores;
+const Scoreboard = ({ xPlaying }) => {
   return (
-    <div className='scoreboard'>
-        
+    <div className={`scoreboard X ${!xPlaying && "O"}`}>
         <span className={ `score x-score ${!xPlaying && "inactive"}`}>Nitty</span>
         <span className={ `score o-score ${xPlaying && "inactive"}`}>Melon</span>
-        {/* <span className={ `score x-score ${!xPlaying && "inactive"}`}>X - {xScore}</span>
-        <span className={ `score o-score ${xPlaying && "inactive"}`}>O - {oScore}</span> */}
     </div>
   )
 }

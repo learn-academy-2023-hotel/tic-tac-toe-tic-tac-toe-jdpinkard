@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 import Board from "./components/Board/Board";
-import Scoreboard from "./components/Scoreboard/Scoreboard"
-import ResetButton from './components/ResetButton/ResetButton';
-import './App.css'
-
+import Scoreboard from "./components/Scoreboard/Scoreboard";
+import ResetButton from "./components/ResetButton/ResetButton";
+import WinPopUp from "./components/WinPopUp/WinPopUp";
+import "./App.css";
 
 const App = () => {
-
   const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -16,65 +15,105 @@ const App = () => {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
-  ]
+    [2, 4, 6],
+  ];
 
-  const [board, setBoard] = useState(Array(9).fill(null))
+  const [board, setBoard] = useState(Array(9).fill(null));
   const [xPlaying, setXPlaying] = useState(true);
-  const [scores, setScores] = useState({ xScore: 0, oScore: 0 })
-  const [gameOver, setGameOver] = useState(false)
+  const [victor, setVictor] = useState("");
+  const [gameOver, setGameOver] = useState(false);
+  const [modalOpen, setModal] = useState(false);
 
   const handleSquareClick = (boxIndex) => {
     const updatedBoard = board.map((value, index) => {
-      if(index === boxIndex) {
+      if (index === boxIndex) {
         return xPlaying === true ? "X" : "O";
       }
       return value;
-    })
+    });
 
     const winner = checkWinner(updatedBoard);
 
-    if (winner) {
-      if (winner === "O") {
-        let {oScore} = scores;
-        oScore += 1
-        setScores({...scores, oScore})
-      } else {
-      let {xScore} = scores;
-      xScore += 1
-      setScores({...scores, xScore})
-      }
+    if (winner === "O") {
+      setVictor("O");
     }
 
-    setBoard(updatedBoard)
-    setXPlaying(!xPlaying)
-  }
+    if (winner === "X") {
+      setVictor("X");
+    }
+
+    if (
+      updatedBoard.every((square) => square !== null) &&
+      winner !== "O" &&
+      winner !== "X"
+    ) {
+      setVictor("Y");
+      setGameOver(true);
+      setTimeout(() => {
+        setModal(true);
+      }, 250);
+    }
+
+    setBoard(updatedBoard);
+    setXPlaying(!xPlaying);
+  };
 
   const checkWinner = (board) => {
-    for(let i = 0; i < winConditions.length; i++) {
-      const [x,y,z] = winConditions[i];
+    for (let i = 0; i < winConditions.length; i++) {
+      const [x, y, z] = winConditions[i];
 
       if (board[x] && board[x] === board[y] && board[y] === board[z]) {
-        setGameOver(true)
-        return board[x]
+        setGameOver(true);
+        setTimeout(function () {
+          setModal(true);
+        }, 250);
+        return board[x];
       }
     }
-  }
+  };
+
+  const onClose = () => {
+    setModal(false);
+  };
 
   const resetBoard = () => {
     setGameOver(false);
     setXPlaying(true);
-    setBoard(Array(9).fill(null))
-  }
+    setBoard(Array(9).fill(null));
+    setModal(false);
+    setVictor(null);
+  };
 
   return (
-    <>
-      <h1 className='title'>Tic Tac Toe</h1>
-      <Scoreboard scores={scores} xPlaying={xPlaying} />
-      <Board board={board} onClick={gameOver ? resetBoard : handleSquareClick} />
-      <ResetButton resetBoard={resetBoard} />
-    </>
-  )
-}
+    <section className="background">
+      <div className="main-container">
+        <h1 className="title">Loser Does the Dishes!</h1>
+        <div className="text">
+          <p>
+            Help Nitty win a game of Tic Tac Toe so Melon does the dishes! Or...
+            Mew could just let Melon win and see Nitty punished!
+          </p>
+        </div>
+        <div className="game-container">
+          <Scoreboard xPlaying={xPlaying} victor={victor} />
+          {modalOpen && (
+            <WinPopUp
+              resetBoard={resetBoard}
+              onClose={onClose}
+              victor={victor}
+            />
+          )}
+          <Board
+            board={board}
+            onClick={gameOver ? null : handleSquareClick}
+            xPlaying={xPlaying}
+            victor={victor}
+          />
+          <ResetButton resetBoard={resetBoard} />
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default App
+export default App;

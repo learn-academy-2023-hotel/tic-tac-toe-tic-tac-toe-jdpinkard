@@ -1,10 +1,12 @@
 .square {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 10%;
-    box-shadow: 0px 0px 8px #888;
+    box-shadow: 0px 0px 8px rgb(107, 85, 98);
     height: 5rem;
     width: 5rem;
+    align-content: center;
+    justify-content: center;
     text-align: center;
     font-size: 5em;
     font-family: "Fredoka", sans-serif;
@@ -13,14 +15,12 @@
     margin: 0.5rem;
   }
 
-  .square:hover {
-    box-shadow: 0px 0px 15px #575353;
+  .x:hover {
+    background-color: rgba(223, 100, 235, 0.8);
+    box-shadow: 0px 0px 15px rgb(44, 35, 40);
   }
 
-  .x {
-    color: rgb(255, 70, 37);
-  }
-
-  .o {
-    color: rgb(44, 135, 255);
+  .o:hover {
+    background-color: rgba(95, 230, 54, 0.8);
+    box-shadow: 0px 0px 15px rgb(44, 35, 40);
   }
