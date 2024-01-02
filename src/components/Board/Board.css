@@ -1,3 +1,10 @@
+.board-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 6rem);
