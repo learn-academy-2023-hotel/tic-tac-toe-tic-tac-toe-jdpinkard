@@ -12,6 +12,14 @@
     font-weight: bold;
 }
 
+.X {
+    box-shadow: 0px 0px 15px rgba(223, 100, 235, 0.8);
+  }
+
+.O {
+    box-shadow: 0px 0px 15px rgba(95, 230, 54, 0.8);
+}
+
 .score {
     width: 100%;
     text-align: center;
