@@ -4,7 +4,8 @@
 
 body {
     margin: 0;
-    background:  url(./images/KitchenMew.png) rgba(153, 98, 115, .8);
+    background:  url(./images/KitchenMew800.png) rgba(153, 98, 115, .8);
+    background-size: cover;
     background-blend-mode: overlay;
     font-family: 'Alegreya', sans-serif;
     color: white;
