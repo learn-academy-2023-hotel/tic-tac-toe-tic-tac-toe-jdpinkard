@@ -32,20 +32,16 @@ const App = () => {
       return value;
     });
 
-    setWinner(checkWinner(updatedBoard)); // determines modal message and image if O or X wins
+    const winnerDeclared = checkWinner(updatedBoard)
 
     if ( // determines tie if board is filled and no winner is declared
-      checkWinner(updatedBoard) !== "X" &&
-      checkWinner(updatedBoard) !== "O" &&
+      !winnerDeclared &&
       updatedBoard.every((square) => square !== null)
     ) {
       setWinner("Y");
       setGameOver(true);
-      setTimeout(() => {
-        setModal(true);
-      }, 250);
+      setModal(true);
     }
-
     setBoard(updatedBoard);
     setXPlaying(!xPlaying);
   };
@@ -56,9 +52,8 @@ const App = () => {
 
       if (board[x] && board[x] === board[y] && board[y] === board[z]) {
         setGameOver(true);
-        setTimeout(function () {
-          setModal(true);
-        }, 250);
+        setWinner(board[x])
+        setModal(true);
         return board[x];
       }
     }
