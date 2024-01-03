@@ -1,22 +1,22 @@
 import React from "react";
 import "./WinPopUp.css";
-import CryNit500 from "../../images/CryNit500.png";
-import NittyVic500g from "../../images/NittyVic500g.png";
-import melon_cry500 from "../../images/melon_cry500.png"
+import nitty_cry from "../../images/nitty_cry.png";
+import nitty_tie from "../../images/nitty_tie.png";
+import melon_cry from "../../images/melon_cry.png"
 
-const WinPopUp = ({ resetBoard, onClose, victor }) => {
-  let victorDeclare = "Nitty Wins!";
-  let victorMessage = "Melon is Forced to do the Dishes!";
-  let winImage = melon_cry500;
+const WinPopUp = ({ resetBoard, onClose, winner }) => {
+  let winnerDeclare = "Nitty Wins!";
+  let winnerMessage = "Melon is Forced to do the Dishes!";
+  let winImage = melon_cry;
 
-  if (victor === "O") {
-    victorDeclare = "Melon Wins!";
-    victorMessage = "Nitty is Stuck Doing the Dishes Again!";
-    winImage = CryNit500;
-  } else if (victor === "Y") {
-    victorDeclare = "A Draw!";
-    victorMessage = "Nitty Demands a Rematch to Decide!";
-    winImage = NittyVic500g;
+  if (winner === "O") { // Determines modal msg & img from default
+    winnerDeclare = "Melon Wins!";
+    winnerMessage = "Nitty is Stuck Doing the Dishes Again!";
+    winImage = nitty_cry;
+  } else if (winner === "Y") {
+    winnerDeclare = "A Draw!";
+    winnerMessage = "Nitty Demands a Rematch to Decide!";
+    winImage = nitty_tie;
   }
 
   return (
@@ -28,9 +28,9 @@ const WinPopUp = ({ resetBoard, onClose, victor }) => {
           </p>
         </div>
         <div className="modal-content">
-          <h1>{victorDeclare}</h1>
-          <img className="modal-img" src={winImage} alt="Player Who Won" width={150} />
-          <p>{victorMessage}</p>
+          <h1>{winnerDeclare}</h1>
+          <img className="modal-img" src={winImage} alt="Player Who Won or Loss" width={150} />
+          <p>{winnerMessage}</p>
         </div>
         <div className="modal-footer">
           <button className="modal-btn" onClick={resetBoard}>

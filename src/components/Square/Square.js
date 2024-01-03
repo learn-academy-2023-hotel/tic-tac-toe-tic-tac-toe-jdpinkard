@@ -5,7 +5,7 @@ import melon_object from "../../images/melon_object.png";
 
 const Square = ({ value, onClick, index, xPlaying }) => {
   
-  const playerObject =
+  const playerObject = // determines X and O image
     value === "X" ? (
       <img src={feline_toy} alt="wind-up mouse" width={60} />
     ) : value === "O" ? (

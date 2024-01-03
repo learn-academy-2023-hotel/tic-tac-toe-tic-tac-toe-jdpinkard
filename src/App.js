@@ -7,7 +7,7 @@ import WinPopUp from "./components/WinPopUp/WinPopUp";
 import "./App.css";
 
 const App = () => {
-  const winConditions = [
+  const winConditions = [ 
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -20,34 +20,26 @@ const App = () => {
 
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xPlaying, setXPlaying] = useState(true);
-  const [victor, setVictor] = useState("");
+  const [winner, setWinner] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [modalOpen, setModal] = useState(false);
 
-  const handleSquareClick = (boxIndex) => {
+  const handleSquareClick = (squareIndex) => { // handles X and O placement on board
     const updatedBoard = board.map((value, index) => {
-      if (index === boxIndex) {
-        return xPlaying === true ? "X" : "O";
+      if (index === squareIndex) {
+        return xPlaying ? "X" : "O";
       }
       return value;
     });
 
-    const winner = checkWinner(updatedBoard);
+    setWinner(checkWinner(updatedBoard)); // determines modal message and image if O or X wins
 
-    if (winner === "O") {
-      setVictor("O");
-    }
-
-    if (winner === "X") {
-      setVictor("X");
-    }
-
-    if (
+    if ( // determines tie if board is filled and no winner is declared
       updatedBoard.every((square) => square !== null) &&
       winner !== "O" &&
       winner !== "X"
     ) {
-      setVictor("Y");
+      setWinner("Y");
       setGameOver(true);
       setTimeout(() => {
         setModal(true);
@@ -58,7 +50,7 @@ const App = () => {
     setXPlaying(!xPlaying);
   };
 
-  const checkWinner = (board) => {
+  const checkWinner = (board) => { // determines if a win condition has occured
     for (let i = 0; i < winConditions.length; i++) {
       const [x, y, z] = winConditions[i];
 
@@ -72,43 +64,42 @@ const App = () => {
     }
   };
 
-  const onClose = () => {
+  const onClose = () => { // closes Modal(WinPopUp) so player can view board
     setModal(false);
   };
 
-  const resetBoard = () => {
+  const resetBoard = () => { // resets board to original state
     setGameOver(false);
     setXPlaying(true);
     setBoard(Array(9).fill(null));
     setModal(false);
-    setVictor(null);
+    setWinner(null);
   }
 
   return (
     <section className="background">
       <div className="main-container">
         <div>
-          <h1 className="title">Loser Does the Dishes!</h1>
-          <div className="text">
+          <h1 className="app-title">Loser Does the Dishes!</h1>
+          <div className="app-text">
             <p>
               Help Nitty win a game of Tic Tac Toe so Melon does the dishes! Or...
               Mew could just let Melon win and see Nitty punished!
             </p>
           </div>
           <div className="game-container">
-            <Scoreboard xPlaying={xPlaying} victor={victor} />
+            <Scoreboard xPlaying={xPlaying} />
             {modalOpen && (
               <WinPopUp
                 resetBoard={resetBoard}
                 onClose={onClose}
-                victor={victor}
+                winner={winner}
               />
             )}
             <Board
               board={board}
               onClick={gameOver ? null : handleSquareClick}
               xPlaying={xPlaying}
-              victor={victor}
             />
             <ResetButton resetBoard={resetBoard} />
           </div>
