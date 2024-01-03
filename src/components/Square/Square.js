@@ -16,13 +16,13 @@ const Square = ({ value, onClick, index, xPlaying }) => {
 
   return (
     <>
-      <button
+      <p
         className={`square x ${!xPlaying && "o"}`}
         onClick={onClick}
         index={index}
       >
         {playerObject}
-      </button>
+      </p>
     </>
   );
 };
