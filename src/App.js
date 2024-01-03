@@ -35,9 +35,9 @@ const App = () => {
     setWinner(checkWinner(updatedBoard)); // determines modal message and image if O or X wins
 
     if ( // determines tie if board is filled and no winner is declared
-      updatedBoard.every((square) => square !== null) &&
-      winner !== "O" &&
-      winner !== "X"
+      checkWinner(updatedBoard) !== "X" &&
+      checkWinner(updatedBoard) !== "O" &&
+      updatedBoard.every((square) => square !== null)
     ) {
       setWinner("Y");
       setGameOver(true);
