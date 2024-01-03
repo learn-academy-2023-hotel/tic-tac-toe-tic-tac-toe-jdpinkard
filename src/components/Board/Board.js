@@ -11,20 +11,22 @@ import melon_cry500 from "../../images/melon_cry500.png"
 const Board = ({ board, onClick, xPlaying, victor }) => {
   let Nitty = NittyA500;
   let Melon = Melon500;
-
-  if (victor === "X") {
-    Nitty = NittyVic500g;
-    Melon = melon_cry500;
-  } 
-
-  if (victor === "O") {
-    Nitty = CryNit500;
-    Melon = Gmelon500;
-  } 
   
-  if (victor === "Y") {
-    Nitty = CryNit500;
-    Melon = melon_cry500;
+  switch (victor) {
+    case "X":
+      Nitty = NittyVic500g;
+      Melon = melon_cry500;
+      break;
+    case "O":
+      Nitty = CryNit500;
+      Melon = Gmelon500;
+      break;
+    case "Y":
+      Nitty = CryNit500;
+      Melon = melon_cry500;
+      break;
+    default:
+      break;
   }
 
   return (

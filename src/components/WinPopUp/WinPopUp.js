@@ -7,23 +7,15 @@ import melon_cry500 from "../../images/melon_cry500.png"
 const WinPopUp = ({ resetBoard, onClose, victor }) => {
   let victorDeclare = "Nitty Wins!";
   let victorMessage = "Melon is Forced to do the Dishes!";
+  let winImage = melon_cry500;
 
   if (victor === "O") {
     victorDeclare = "Melon Wins!";
     victorMessage = "Nitty is Stuck Doing the Dishes Again!";
-  } 
-  if (victor === "Y") {
+    winImage = CryNit500;
+  } else if (victor === "Y") {
     victorDeclare = "A Draw!";
     victorMessage = "Nitty Demands a Rematch to Decide!";
-  }
-
-  let winImage = melon_cry500;
-  
-  if (victor === "O") {
-    winImage = CryNit500;
-  } 
-
-  if (victor === "Y") {
     winImage = NittyVic500g;
   }
 
@@ -37,12 +29,7 @@ const WinPopUp = ({ resetBoard, onClose, victor }) => {
         </div>
         <div className="modal-content">
           <h1>{victorDeclare}</h1>
-          <img
-            className="modal-img"
-            src={winImage}
-            alt="Player Who Won"
-            width={150}
-          />
+          <img className="modal-img" src={winImage} alt="Player Who Won" width={150} />
           <p>{victorMessage}</p>
         </div>
         <div className="modal-footer">
