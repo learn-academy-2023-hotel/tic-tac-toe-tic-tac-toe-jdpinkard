@@ -82,34 +82,36 @@ const App = () => {
     setBoard(Array(9).fill(null));
     setModal(false);
     setVictor(null);
-  };
+  }
 
   return (
     <section className="background">
       <div className="main-container">
-        <h1 className="title">Loser Does the Dishes!</h1>
-        <div className="text">
-          <p>
-            Help Nitty win a game of Tic Tac Toe so Melon does the dishes! Or...
-            Mew could just let Melon win and see Nitty punished!
-          </p>
-        </div>
-        <div className="game-container">
-          <Scoreboard xPlaying={xPlaying} victor={victor} />
-          {modalOpen && (
-            <WinPopUp
-              resetBoard={resetBoard}
-              onClose={onClose}
+        <div>
+          <h1 className="title">Loser Does the Dishes!</h1>
+          <div className="text">
+            <p>
+              Help Nitty win a game of Tic Tac Toe so Melon does the dishes! Or...
+              Mew could just let Melon win and see Nitty punished!
+            </p>
+          </div>
+          <div className="game-container">
+            <Scoreboard xPlaying={xPlaying} victor={victor} />
+            {modalOpen && (
+              <WinPopUp
+                resetBoard={resetBoard}
+                onClose={onClose}
+                victor={victor}
+              />
+            )}
+            <Board
+              board={board}
+              onClick={gameOver ? null : handleSquareClick}
+              xPlaying={xPlaying}
               victor={victor}
             />
-          )}
-          <Board
-            board={board}
-            onClick={gameOver ? null : handleSquareClick}
-            xPlaying={xPlaying}
-            victor={victor}
-          />
-          <ResetButton resetBoard={resetBoard} />
+            <ResetButton resetBoard={resetBoard} />
+          </div>
         </div>
       </div>
     </section>

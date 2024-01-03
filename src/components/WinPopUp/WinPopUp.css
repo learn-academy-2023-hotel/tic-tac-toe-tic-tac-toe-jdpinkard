@@ -69,7 +69,31 @@
     text-align: center;
 }
 
+.modal-img {
+    display: none;
+}
+
 .modal-footer {
     display: flex;
     justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 750px){
+    .modal-container h1 {
+        font-size: 2rem;
+    }
+
+    .modal-img {
+        display: flex;
+        margin: auto;
+        margin-top: 2rem;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgb(148, 127, 143);
+        border-radius: 10%;
+        box-shadow: 0px 0px 8px rgb(107, 85, 98);
+    }
+
+    .modal-container p {
+        font-size: 1.2rem;
+    }
 }

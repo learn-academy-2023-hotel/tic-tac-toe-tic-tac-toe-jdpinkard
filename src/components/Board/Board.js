@@ -5,20 +5,22 @@ import Melon500 from "../../images/Melon500.png";
 import Gmelon500 from "../../images/Gmelon500.png";
 import NittyA500 from "../../images/NittyA500.png";
 import CryNit500 from "../../images/CryNit500.png";
+import NittyVic500g from "../../images/NittyVic500g.png";
+import melon_cry500 from "../../images/melon_cry500.png"
 
 const Board = ({ board, onClick, xPlaying, victor }) => {
   let Nitty = NittyA500;
   let Melon = Melon500;
 
   if (victor === "X") {
-    Nitty = NittyA500;
-    Melon = Melon500;
+    Nitty = NittyVic500g;
+    Melon = melon_cry500;
   } else if (victor === "O") {
     Nitty = CryNit500;
     Melon = Gmelon500;
   } else if (victor === "Y") {
     Nitty = CryNit500;
-    Melon = Melon500;
+    Melon = melon_cry500;
   }
 
   return (

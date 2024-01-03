@@ -5,7 +5,7 @@
     justify-content: space-evenly;
 }
 
-.vs-image-nitty {
+.vs-image-nitty .vs-image-melon {
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid black;
     border-radius: 10%;
@@ -18,17 +18,9 @@
 
 }
 
-.vs-image-melon {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid black;
-    border-radius: 10%;
-    box-shadow: 0px 0px 8px rgb(107, 85, 98);
-}
-
 .vs-image-melon:hover {
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 30px rgba(95, 230, 54, 0.8);
-
 }
 
 .board {
@@ -36,4 +28,10 @@
     grid-template-columns: repeat(3, 6rem);
     place-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width: 750px){
+    .vs-image-melon, .vs-image-nitty{
+        display: none;
+    }
 }

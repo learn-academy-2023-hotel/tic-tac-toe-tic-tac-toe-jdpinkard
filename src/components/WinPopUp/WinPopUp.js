@@ -1,19 +1,30 @@
 import React from "react";
 import "./WinPopUp.css";
+import CryNit500 from "../../images/CryNit500.png";
+import NittyVic500g from "../../images/NittyVic500g.png";
+import melon_cry500 from "../../images/melon_cry500.png"
 
 const WinPopUp = ({ resetBoard, onClose, victor }) => {
-  let victorDeclare = "";
-  let victorMessage = "";
+  let victorDeclare = "Nitty Wins!";
+  let victorMessage = "Melon is Forced to do the Dishes!";
 
-  if (victor === "X") {
-    victorDeclare = "Nitty Wins!";
-    victorMessage = "Melon is Forced to do the Dishes!";
-  } else if (victor === "O") {
+  if (victor === "O") {
     victorDeclare = "Melon Wins!";
     victorMessage = "Nitty is Stuck Doing the Dishes Again!";
-  } else if (victor === "Y") {
+  } 
+  if (victor === "Y") {
     victorDeclare = "A Draw!";
     victorMessage = "Nitty Demands a Rematch to Decide!";
+  }
+
+  let winImage = melon_cry500;
+  
+  if (victor === "O") {
+    winImage = CryNit500;
+  } 
+
+  if (victor === "Y") {
+    winImage = NittyVic500g;
   }
 
   return (
@@ -26,6 +37,12 @@ const WinPopUp = ({ resetBoard, onClose, victor }) => {
         </div>
         <div className="modal-content">
           <h1>{victorDeclare}</h1>
+          <img
+            className="modal-img"
+            src={winImage}
+            alt="Player Who Won"
+            width={150}
+          />
           <p>{victorMessage}</p>
         </div>
         <div className="modal-footer">

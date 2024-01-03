@@ -18,9 +18,21 @@
   .x:hover {
     background-color: rgba(223, 100, 235, 0.8);
     box-shadow: 0px 0px 15px rgb(44, 35, 40);
+    cursor: pointer;
   }
 
   .o:hover {
     background-color: rgba(95, 230, 54, 0.8);
     box-shadow: 0px 0px 15px rgb(44, 35, 40);
+    cursor: pointer;
   }
+
+@media only screen and (max-width: 750px){
+  .x:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .o:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}

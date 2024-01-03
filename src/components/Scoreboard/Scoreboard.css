@@ -41,3 +41,9 @@
 .inactive {
     border-bottom: 5px solid transparent;
 }
+
+@media only screen and (max-width: 280px){
+    .scoreboard {
+        width: auto;
+    }
+}
