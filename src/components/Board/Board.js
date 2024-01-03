@@ -15,10 +15,14 @@ const Board = ({ board, onClick, xPlaying, victor }) => {
   if (victor === "X") {
     Nitty = NittyVic500g;
     Melon = melon_cry500;
-  } else if (victor === "O") {
+  } 
+
+  if (victor === "O") {
     Nitty = CryNit500;
     Melon = Gmelon500;
-  } else if (victor === "Y") {
+  } 
+  
+  if (victor === "Y") {
     Nitty = CryNit500;
     Melon = melon_cry500;
   }
