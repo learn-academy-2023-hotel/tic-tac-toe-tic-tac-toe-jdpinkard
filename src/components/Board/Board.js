@@ -8,6 +8,7 @@ const Board = ({ board, onClick, xPlaying}) => {
 
   return (
     <div className="board-container">
+      {/* empty div below being used as placeholder to create space */}
       <div></div>
       <img
         className="vs-image-nitty"
@@ -33,7 +34,8 @@ const Board = ({ board, onClick, xPlaying}) => {
         alt="Melon the Lalafell"
         width={200}
       />
-      <div></div>
+      {/* empty div below being used as placeholder to create space */}
+      <div></div> 
     </div>
   );
 };
