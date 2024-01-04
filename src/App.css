@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background:  url(./images/kitchen_background.png) rgba(153, 98, 115, .8);
+    background:  url(./images/kitchen_background.jpg) rgba(153, 98, 115, .8);
     background-size: cover;
     background-blend-mode: overlay;
     font-family: 'Alegreya', sans-serif;
