@@ -1,3 +1,13 @@
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+
 .modal-container {
     position: fixed;
     left: 0;
@@ -9,6 +19,7 @@
     justify-content: center;
     text-align: center;
     background-color: rgba(0,0,0, 0.5);
+    animation: fade-in 0.1s;
 }
 
 .modal-container h1 {
