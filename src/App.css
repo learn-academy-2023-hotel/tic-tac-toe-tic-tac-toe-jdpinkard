@@ -7,7 +7,7 @@ body {
     background:  url(./images/kitchen_background.jpg) rgba(153, 98, 115, .8);
     background-size: cover;
     background-blend-mode: overlay;
-    font-family: 'Alegreya', sans-serif;
+    font-family: 'Alegreya', 'Fredoka', sans-serif;
     color: white;
     height: 100%;
 }
